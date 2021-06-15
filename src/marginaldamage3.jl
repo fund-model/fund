@@ -23,9 +23,6 @@ function getmarginalmodels(; gas = :C, emissionyear = 2010, parameters = nothing
     elseif gas == :N2O
         connect_param!(m2, :marginalemission, :input, :emissions, :globn2o)
         connect_param!(m2, :climaten2ocycle, :globn2o, :marginalemission, :output, repeat([missing], yearstorun + 1))
-    elseif gas == :SF6
-        connect_param!(m2, :marginalemission, :input, :emissions,:globsf6)
-        connect_param!(m2, :climatesf6cycle, :globsf6, :marginalemission, :output, repeat([missing], yearstorun + 1))
     else
         error("Unknown gas.")
     end

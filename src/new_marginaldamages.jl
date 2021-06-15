@@ -38,8 +38,6 @@ function _gas_normalization(gas::Symbol)
         return 1
     elseif gas == :N2O
         return 28/44    # convert from tons N2O to tons N
-    elseif gas == :SF6 
-        return 1
     else
         error("Unknown gas :$gas.")
     end
@@ -71,9 +69,6 @@ function add_marginal_emissions!(m, year::Union{Int, Nothing} = nothing; gas::Sy
     elseif gas == :N2O
         connect_param!(m, :emissionspulse, :input, :emissions, :globn2o)
         connect_param!(m, :climaten2ocycle, :globn2o, :emissionspulse, :output)
-    elseif gas == :SF6
-        connect_param!(m, :emissionspulse, :input, :emissions, :globsf6)
-        connect_param!(m, :climatesf6cycle, :globsf6, :emissionspulse, :output)
     else
         error("Unknown gas: $gas")
     end
