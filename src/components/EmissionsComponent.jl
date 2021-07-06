@@ -62,22 +62,22 @@
     income = Parameter(index=[time,regions])
     population = Parameter(index=[time,regions])
 
-    sf6gdp = Parameter(default = 0.00022628870292887)
-    sf6ypc = Parameter(default = -2.46698744769874e-6)
-    knowpar = Parameter(default = 0.9)
-    knowgpar = Parameter(default = 0.1)
-    gwpch4 = Parameter(default = 0.077)
-    gwpn2o = Parameter(default = 0.361666666666667)
+    sf6gdp = Parameter(default=0.00022628870292887)
+    sf6ypc = Parameter(default=-2.46698744769874e-6)
+    knowpar = Parameter(default=0.9)
+    knowgpar = Parameter(default=0.1)
+    gwpch4 = Parameter(default=0.077)
+    gwpn2o = Parameter(default=0.361666666666667)
 
-    taxconstant = Parameter(default = 0.784)
-    taxemint = Parameter(default = 0.084)
-    taxthreshold = Parameter(default = 100)
-    taxdepreciation = Parameter(default = 0.1)
-    maxcostfall = Parameter(default = 10)
+    taxconstant = Parameter(default=0.784)
+    taxemint = Parameter(default=0.084)
+    taxthreshold = Parameter(default=100)
+    taxdepreciation = Parameter(default=0.1)
+    maxcostfall = Parameter(default=10)
 
-    ch4add = Parameter(default = 0)
-    n2oadd = Parameter(default = 0)
-    sf6add = Parameter(default = 0)
+    ch4add = Parameter(default=0)
+    n2oadd = Parameter(default=0)
+    sf6add = Parameter(default=0)
     
     function run_timestep(p, v, d, t)
 
@@ -276,7 +276,7 @@
             end
 
             for r in d.regions
-                #v.mitigationcost[t, r] = (p.taxmp[r] * v.ryg[t, r] /*+ v.ch4cost[t, r]*/ + v.n2ocost[t, r]) * p.income[t, r]
+                # v.mitigationcost[t, r] = (p.taxmp[r] * v.ryg[t, r] /*+ v.ch4cost[t, r]*/ + v.n2ocost[t, r]) * p.income[t, r]
                 v.mitigationcost[t, r] = (p.taxmp[r] * v.ryg[t, r] + v.n2ocost[t, r]) * p.income[t, r]
             end
 

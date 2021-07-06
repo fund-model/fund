@@ -5,11 +5,11 @@
     hurrdead = Variable(index=[time,regions])
 
     hurrbasedam = Parameter(index=[regions])
-    hurrdamel = Parameter(default = -0.514)
-    hurrnl = Parameter(default = 3)
-    hurrpar = Parameter(default = 0.04)
+    hurrdamel = Parameter(default=-0.514)
+    hurrnl = Parameter(default=3)
+    hurrpar = Parameter(default=0.04)
     hurrbasedead = Parameter(index=[regions])
-    hurrdeadel = Parameter(default = -0.501)
+    hurrdeadel = Parameter(default=-0.501)
 
     gdp90 = Parameter(index=[regions])
     pop90 = Parameter(index=[regions])

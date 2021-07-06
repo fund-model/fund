@@ -15,7 +15,7 @@
     lifetempqd = Parameter()
 
     # Climate sensitivity
-    climatesensitivity = Parameter(default = 2.999999803762826)
+    climatesensitivity = Parameter(default=2.999999803762826)
 
     function run_timestep(p, v, d, t)
         

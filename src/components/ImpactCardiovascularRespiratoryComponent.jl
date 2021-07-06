@@ -27,9 +27,9 @@
     urbpop = Parameter(index=[time,regions])
     population = Parameter(index=[time,regions])
 
-    cvlin = Parameter(default = 0.025901)
-    rlin = Parameter(default = 0.001583)
-    maxcardvasc = Parameter(default = 0.05)
+    cvlin = Parameter(default=0.025901)
+    rlin = Parameter(default=0.001583)
+    maxcardvasc = Parameter(default=0.05)
 
     function run_timestep(p, v, d, t)
 

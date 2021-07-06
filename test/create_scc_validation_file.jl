@@ -21,7 +21,7 @@ specs = Dict([
     :pulse_size => [1, 1e7]
 ])
 
-results = DataFrame(gas = [], year = [], eta = [], prtp = [], equity_weights = [], equity_weights_normalization_region = [], last_year = [], pulse_size = [], SC = [])
+results = DataFrame(gas=[], year=[], eta=[], prtp=[], equity_weights=[], equity_weights_normalization_region=[], last_year=[], pulse_size=[], SC=[])
 
 for gas in specs[:gas]
     for year in specs[:year]
@@ -60,8 +60,8 @@ filter!(:gas => x -> (x == "CO2" || x == "CH4"), new_sc)
 
 old_sc_bigpulse = filter(:pulse_size => x -> x == 1.0e7, old_sc)
 new_sc_bigpulse = filter(:pulse_size => x -> x == 1.0e7, new_sc)
-@test all(isapprox.(old_sc_bigpulse[!, :SC], new_sc_bigpulse[!, :SC], atol = 1e-9))
+@test all(isapprox.(old_sc_bigpulse[!, :SC], new_sc_bigpulse[!, :SC], atol=1e-9))
 
 old_sc_smallpulse = filter(:pulse_size => x -> x == 1.0e7, old_sc)
 new_sc_smallpulse = filter(:pulse_size => x -> x == 1.0e7, new_sc)
-@test all(isapprox.(old_sc_smallpulse[!, :SC], new_sc_smallpulse[!, :SC], atol = 1e-1))
+@test all(isapprox.(old_sc_smallpulse[!, :SC], new_sc_smallpulse[!, :SC], atol=1e-1))

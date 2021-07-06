@@ -3,10 +3,10 @@
     nospecies = Variable(index=[time])
 
     # additive parameter
-    bioloss = Parameter(default = 0.003)
+    bioloss = Parameter(default=0.003)
 
     # multiplicative parameter
-    biosens = Parameter(default = 0.001)
+    biosens = Parameter(default=0.001)
 
     # Temperature
     temp = Parameter(index=[time])

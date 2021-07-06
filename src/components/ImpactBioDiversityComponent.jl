@@ -14,9 +14,9 @@
     income = Parameter(index=[time,regions])
     population = Parameter(index=[time,regions])
     valinc = Parameter(index=[regions])
-    bioshare = Parameter(default = 0.05)
-    spbm = Parameter(default = 50)
-    valbase = Parameter(default = 24401)
+    bioshare = Parameter(default=0.05)
+    spbm = Parameter(default=50)
+    valbase = Parameter(default=24401)
     dbsta = Parameter()
 
     function run_timestep(p, v, d, t)

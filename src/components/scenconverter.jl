@@ -33,8 +33,8 @@
 
         for r in d.regions
             if t.t < 1050
-                v.scenpgrowth[t, r] = (p.population[t+1, r] / p.population[t, r] - 1.) * 100.
-                v.scenypcgrowth[t, r] = (p.income[t+1, r] / p.income[t, r] / (1 + 0.01 * v.scenpgrowth[t, r]) - 1.) * 100.
+                v.scenpgrowth[t, r] = (p.population[t + 1, r] / p.population[t, r] - 1.) * 100.
+                v.scenypcgrowth[t, r] = (p.income[t + 1, r] / p.income[t, r] / (1 + 0.01 * v.scenpgrowth[t, r]) - 1.) * 100.
             end
 
             v.energint[t, r] = p.energuse[t, r] / p.income[t,r]

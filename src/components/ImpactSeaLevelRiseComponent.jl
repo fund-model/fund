@@ -27,17 +27,17 @@
 
     imigrate = Variable(index=[regions,regions]) # Migration matrix
 
-    incdens     = Parameter(default = 0.000635) # Normalization income density
-    emcst       = Parameter(default = 3) # emigration loss benchmark value
-    immcst      = Parameter(default = 0.4) # immigration loss benchmark
-    dvydl       = Parameter(default = 1) # income density elasticity of dryland value
-    wvel        = Parameter(default = 1.16) # wetland value income elasticity
-    wvbm        = Parameter(default = 0.00588) # wetland value benchmark value
-    slrwvpopdens0 = Parameter(default = 27.5937717888728) # wetland value income normalization value
-    wvpdl       = Parameter(default = 0.47)
-    wvsl        = Parameter(default = -0.11)
-    dvbm        = Parameter(default = 0.004) # dryland value benchmark value
-    slrwvypc0   = Parameter(default = 25000)
+    incdens     = Parameter(default=0.000635) # Normalization income density
+    emcst       = Parameter(default=3) # emigration loss benchmark value
+    immcst      = Parameter(default=0.4) # immigration loss benchmark
+    dvydl       = Parameter(default=1) # income density elasticity of dryland value
+    wvel        = Parameter(default=1.16) # wetland value income elasticity
+    wvbm        = Parameter(default=0.00588) # wetland value benchmark value
+    slrwvpopdens0 = Parameter(default=27.5937717888728) # wetland value income normalization value
+    wvpdl       = Parameter(default=0.47)
+    wvsl        = Parameter(default=-0.11)
+    dvbm        = Parameter(default=0.004) # dryland value benchmark value
+    slrwvypc0   = Parameter(default=25000)
 
     pc          = Parameter(index=[regions])
     slrprtp     = Parameter(index=[regions])

@@ -2,16 +2,16 @@
     # Global SF6 emissions in kt of SF6
     globsf6 = Parameter(index=[time])
 
-    #Atmospheric SF6 concentrations
+    # Atmospheric SF6 concentrations
     acsf6 = Variable(index=[time])
 
-    #SF6 pre industrial
+    # SF6 pre industrial
     sf6pre = Parameter()
 
-    #SF6 decay
+    # SF6 decay
     sf6decay = Variable()
 
-    lifesf6 = Parameter(default = 3200.0)
+    lifesf6 = Parameter(default=3200.0)
 
     function run_timestep(p, v, d, t)
         

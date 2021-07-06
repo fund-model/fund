@@ -13,10 +13,10 @@
     population = Parameter(index=[time,regions])
     temp = Parameter(index=[time,regions])
 
-    forel = Parameter(default = -0.31)
-    fornl = Parameter(default = 1)
+    forel = Parameter(default=-0.31)
+    fornl = Parameter(default=1)
     co2pre = Parameter()
-    forco2 = Parameter(default = 2.2972)
+    forco2 = Parameter(default=2.2972)
 
     function run_timestep(p, v, d, t)
 

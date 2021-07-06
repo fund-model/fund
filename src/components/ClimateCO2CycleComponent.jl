@@ -42,34 +42,34 @@
     co2decay5 = Variable()
 
     # Carbon decay in box 1
-    lifeco1 = Parameter(default = 1.0)
+    lifeco1 = Parameter(default=1.0)
 
     # Carbon decay in box 2
-    lifeco2 = Parameter(default = 363.0)
+    lifeco2 = Parameter(default=363.0)
 
     # Carbon decay in box 3
-    lifeco3 = Parameter(default = 74.0)
+    lifeco3 = Parameter(default=74.0)
 
     # Carbon decay in box 4
-    lifeco4 = Parameter(default = 17.0)
+    lifeco4 = Parameter(default=17.0)
 
     # Carbon decay in box 5
-    lifeco5 = Parameter(default = 2.0)
+    lifeco5 = Parameter(default=2.0)
 
     # Fraction of carbon emission in box 1
-    co2frac1 = Parameter(default = 0.13)
+    co2frac1 = Parameter(default=0.13)
 
     # Fraction of carbon emission in box 2
-    co2frac2 = Parameter(default = 0.2)
+    co2frac2 = Parameter(default=0.2)
 
     # Fraction of carbon emission in box 3
-    co2frac3 = Parameter(default = 0.32)
+    co2frac3 = Parameter(default=0.32)
 
     # Fraction of carbon emission in box 4
-    co2frac4 = Parameter(default = 0.25)
+    co2frac4 = Parameter(default=0.25)
 
     # Fraction of carbon emission in box 5
-    co2frac5 = Parameter(default = 0.1)
+    co2frac5 = Parameter(default=0.1)
 
     # Atmospheric CO2 concentration
     acco2 = Variable(index=[time])
@@ -80,8 +80,8 @@
     # Temperature
     temp = Parameter(index=[time])
 
-    terrco2sens = Parameter(default = 2600.000000000002)
-    terrco2stock0 = Parameter(default = 1.9e6)
+    terrco2sens = Parameter(default=2600.000000000002)
+    terrco2stock0 = Parameter(default=1.9e6)
 
     tempin2010 = Variable()
 

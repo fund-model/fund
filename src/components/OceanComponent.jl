@@ -2,9 +2,9 @@
     # Sea-level rise in meters
     sea = Variable(index=[time])
 
-    lifesea = Parameter(default = 500)
+    lifesea = Parameter(default=500)
 
-    seas = Parameter(default = 2)
+    seas = Parameter(default=2)
 
     delaysea = Variable()
 

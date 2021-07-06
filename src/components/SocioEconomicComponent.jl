@@ -34,10 +34,10 @@
 	gdp0    = Parameter(index=[regions])
 
 
-	runwithoutdamage = Parameter{Bool}(default = false)
-	consleak    = Parameter(default = 0.25)
-	plusel      = Parameter(default = 0.25)
-    savingsrate = Parameter(default = 0.2)
+	runwithoutdamage = Parameter{Bool}(default=false)
+	consleak    = Parameter(default=0.25)
+	plusel      = Parameter(default=0.25)
+    savingsrate = Parameter(default=0.2)
 
     function run_timestep(p, v, d, t)
 
@@ -79,7 +79,7 @@
             end
 
             for r in d.regions
-                v.consumption[t, r] = max(v.income[t, r] * 1000000000.0 * (1.0 - p.savingsrate) - (p.runwithoutdamage ? 0.0 :   (p.eloss[t - 1, r] + p.sloss[t - 1, r]) * 1000000000.0),0.0)
+                v.consumption[t, r] = max(v.income[t, r] * 1000000000.0 * (1.0 - p.savingsrate) - (p.runwithoutdamage ? 0.0 :   (p.eloss[t - 1, r] + p.sloss[t - 1, r]) * 1000000000.0), 0.0)
             end
             v.globalconsumption[t] = sum(v.consumption[t,:])
 
@@ -100,7 +100,7 @@
                 v.urbpop[t, r] = (0.031 * sqrt(v.ypc[t, r]) - 0.011 * sqrt(v.popdens[t, r])) / (1.0 + 0.031 * sqrt(v.ypc[t,r]) - 0.011 * sqrt(v.popdens[t, r])) / (1 + p.urbcorr[r] / (1 + 0.001 * (gettime(t) - 1990)^2.))
                 # DA: urbcorr needs to be changed to a function if this is to be made uncertain
             end
-
+            
             v.globalincome[t] = sum(v.income[t,:])
 
             v.globalypc[t] = sum(v.income[t,:] .* 1000000000.0) / sum(p.populationin1[t,:])

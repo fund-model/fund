@@ -10,10 +10,10 @@
     pop90 = Parameter(index=[regions])
 
     income = Parameter(index=[time,regions])
-    ceel = Parameter(default = 0.8)
+    ceel = Parameter(default=0.8)
 
     temp = Parameter(index=[time,regions])
-    cenl = Parameter(default = 1.5)
+    cenl = Parameter(default=1.5)
 
     cumaeei = Parameter(index=[time,regions])
 

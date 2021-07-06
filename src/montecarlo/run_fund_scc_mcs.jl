@@ -8,7 +8,7 @@ the Social Cost of Carbon for the specified `years` and discount `rates`.
 `output_dir`: an output directory; if none provided, will create and use "output/SCC yyyy-mm-dd HH-MM-SS MCtrials". 
 `save_trials`: whether or not to generate and save the MC trial values up front to a file.
 """
-function run_fund_scc_mcs(trials = 10000; years = [2020], rates = [0.03], ntimesteps = MimiFUND.default_nsteps + 1, output_dir = nothing, save_trials = false)
+function run_fund_scc_mcs(trials=10000; years=[2020], rates=[0.03], ntimesteps=MimiFUND.default_nsteps + 1, output_dir=nothing, save_trials=false)
 
     # Set up output directories
     output_dir = output_dir === nothing ? joinpath(@__DIR__, "../../output/", "SCC $(Dates.format(now(), "yyyy-mm-dd HH-MM-SS")) MC$trials") : output_dir
@@ -59,10 +59,10 @@ function run_fund_scc_mcs(trials = 10000; years = [2020], rates = [0.03], ntimes
         T = ntimesteps == typemax(Int) ? length(Mimi.dimension(mm.base, :time)) : ntimesteps
         discount_factor = zeros(T)
         idx = getindexfromyear(emissionyear)
-        discount_factor[idx:T] = [1 / ((1 + rate) ^ t) for t in 0:T-idx]
+        discount_factor[idx:T] = [1 / ((1 + rate)^t) for t in 0:T - idx]
     
         # Sum discounted global damages to scc
-        scc = sum(sum(marginaldamages, dims = 2)[2:T] .* discount_factor[2:end])
+        scc = sum(sum(marginaldamages, dims=2)[2:T] .* discount_factor[2:end])
     
         # Write output
         open(scc_file, "a") do f 
@@ -74,12 +74,12 @@ function run_fund_scc_mcs(trials = 10000; years = [2020], rates = [0.03], ntimes
 
     # Run monte carlo trials
     res = run(mcs, mm, trials;
-        ntimesteps = ntimesteps,
-        trials_output_filename = trials_output_filename,
-        results_output_dir = "$output_dir/results",
-        scenario_args = scenario_args, 
-        scenario_func = _scenario_func,   
-        post_trial_func = scc_calculation   
+        ntimesteps=ntimesteps,
+        trials_output_filename=trials_output_filename,
+        results_output_dir="$output_dir/results",
+        scenario_args=scenario_args, 
+        scenario_func=_scenario_func,   
+        post_trial_func=scc_calculation   
         )
 
     return res

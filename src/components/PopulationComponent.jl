@@ -10,7 +10,7 @@
     leave               = Parameter(index=[time,regions])
     dead                = Parameter(index=[time,regions])
     pop0                = Parameter(index=[regions])
-    runwithoutpopulationperturbation = Parameter{Bool}(default = false)
+    runwithoutpopulationperturbation = Parameter{Bool}(default=false)
 
     function run_timestep(p, v, d, t)
         if is_first(t)

@@ -5,12 +5,12 @@
     diasick = Variable(index=[time,regions])
 
     diamort = Parameter(index=[regions])
-    diamortel = Parameter(default = -1.578625)
-    diamortnl = Parameter(default = 1.141714)
+    diamortel = Parameter(default=-1.578625)
+    diamortnl = Parameter(default=1.141714)
 
     diayld = Parameter(index=[regions])
-    diayldel = Parameter(default = -0.418406)
-    diayldnl = Parameter(default = 0.699241)
+    diayldel = Parameter(default=-0.418406)
+    diayldnl = Parameter(default=0.699241)
 
     income = Parameter(index=[time,regions])
     population = Parameter(index=[time,regions])

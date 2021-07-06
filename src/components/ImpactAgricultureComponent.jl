@@ -8,7 +8,7 @@
 
     agrish = Variable(index=[time,regions])
     agrish0 = Parameter(index=[regions])
-    agel = Parameter(default = 0.31)
+    agel = Parameter(default=0.31)
 
     agrate = Variable(index=[time,regions])
     aglevel = Variable(index=[time,regions])
@@ -17,7 +17,7 @@
 
     agrbm = Parameter(index=[regions])
     agtime = Parameter(index=[regions])
-    agnl = Parameter(default = 2)
+    agnl = Parameter(default=2)
 
     aglparl = Parameter(index=[regions])
     aglparq = Parameter(index=[regions])

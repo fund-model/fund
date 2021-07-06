@@ -17,7 +17,7 @@ end
     ch4pre = Parameter()
 
     # Indirect radiative forcing increase for CH4
-    ch4ind = Parameter(default = 0.4)
+    ch4ind = Parameter(default=0.4)
 
     # Atmospheric N2O concentration
     acn2o = Parameter(index=[time])

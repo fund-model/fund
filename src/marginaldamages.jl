@@ -1,19 +1,19 @@
 """
 Returns a matrix of marginal damages per one ton of additional emissions of the specified gas in the specified year.
 """
-function getmarginaldamages(; emissionyear=2010, parameters = nothing, yearstoaggregate = 1000, gas = :C) 
+function getmarginaldamages(; emissionyear=2010, parameters=nothing, yearstoaggregate=1000, gas=:C) 
 
     # Calculate number of years to run the models
     yearstorun = min(1050, getindexfromyear(emissionyear) + yearstoaggregate)
 
     # Get default FUND model
-    m1 = MimiFUND.get_model(nsteps = yearstorun, params = parameters)
+    m1 = MimiFUND.get_model(nsteps=yearstorun, params=parameters)
 
     # Get model to add marginal emissions to
-    m2 = MimiFUND.get_model(nsteps = yearstorun, params = parameters)
-    add_comp!(m2, Mimi.adder, :marginalemission, before = :climateco2cycle, first = 1951)
+    m2 = MimiFUND.get_model(nsteps=yearstorun, params=parameters)
+    add_comp!(m2, Mimi.adder, :marginalemission, before=:climateco2cycle, first=1951)
     addem = zeros(yearstorun)
-    addem[getindexfromyear(emissionyear)-1:getindexfromyear(emissionyear) + 8] .= 1.0
+    addem[getindexfromyear(emissionyear) - 1:getindexfromyear(emissionyear) + 8] .= 1.0
     set_param!(m2, :marginalemission, :add, addem)
 
     # Reconnect the appropriate emissions in the marginal model
@@ -27,15 +27,15 @@ function getmarginaldamages(; emissionyear=2010, parameters = nothing, yearstoag
         connect_param!(m2, :marginalemission, :input, :emissions, :globn2o)
         connect_param!(m2, :climaten2ocycle, :globn2o, :marginalemission, :output, repeat([missing], yearstorun + 1))
     elseif gas == :SF6
-        connect_param!(m2, :marginalemission, :input, :emissions,:globsf6)
+        connect_param!(m2, :marginalemission, :input, :emissions, :globsf6)
         connect_param!(m2, :climatesf6cycle, :globsf6, :marginalemission, :output, repeat([missing], yearstorun + 1))
     else
         error("Unknown gas.")
     end
 
     # Run both models
-    run(m1; ntimesteps = yearstorun)
-    run(m2; ntimesteps = yearstorun)
+    run(m1; ntimesteps=yearstorun)
+    run(m2; ntimesteps=yearstorun)
 
     # Get damages
     damage1 = m1[:impactaggregation, :loss]

@@ -5,11 +5,11 @@
     extratropicalstormsdead = Variable(index=[time,regions])
 
     extratropicalstormsbasedam = Parameter(index=[regions])
-    extratropicalstormsdamel = Parameter(default = -0.514)
+    extratropicalstormsdamel = Parameter(default=-0.514)
     extratropicalstormspar = Parameter(index=[regions])
     extratropicalstormsbasedead = Parameter(index=[regions])
-    extratropicalstormsdeadel = Parameter(default = -0.501)
-    extratropicalstormsnl = Parameter(default = 1)
+    extratropicalstormsdeadel = Parameter(default=-0.501)
+    extratropicalstormsnl = Parameter(default=1)
 
     gdp90 = Parameter(index=[regions])
     pop90 = Parameter(index=[regions])

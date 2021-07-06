@@ -7,7 +7,7 @@
     acei = Variable(index=[time,regions])
     forestemm = Variable(index=[time,regions])
 
-    timeofuncertaintystart = Parameter{Int}(default = 2000)
+    timeofuncertaintystart = Parameter{Int}(default=2000)
 
     scenpgrowth     = Parameter(index=[time,regions])
     scenypcgrowth   = Parameter(index=[time,regions])

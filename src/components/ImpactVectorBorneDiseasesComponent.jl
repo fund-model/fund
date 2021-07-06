@@ -19,10 +19,10 @@
     population = Parameter(index=[time,regions])
     temp = Parameter(index=[time,regions])
 
-    dfnl = Parameter(default = 1)
-    vbel = Parameter(default = -2.65)
-    smnl = Parameter(default = 1)
-    malnl = Parameter(default = 1)
+    dfnl = Parameter(default=1)
+    vbel = Parameter(default=-2.65)
+    smnl = Parameter(default=1)
+    malnl = Parameter(default=1)
 
     function run_timestep(p, v, d, t)
 
